@@ -139,7 +139,7 @@ cast call $(jq -r .validator deployments/102031.json) "chainKey()(uint64)" \
   --rpc-url https://rpc.cc3-testnet.creditcoin.network      # expect 3
 ```
 
-### Optional: contract verification
+### Contract verification (already done)
 
 Blockscout, not Etherscan:
 
@@ -234,5 +234,6 @@ Verified 2026-09-14, on Creditcoin CC3 (chain 102031) unless noted:
 Earlier local rehearsal: full round trip against Anvil with `0x0FD2` stubbed, which is what
 caught the ABI encoding of the nested `Claim` tuple before it mattered.
 
-**Known gap:** contracts are not verified on Blockscout. Command is in the section above;
-it is cosmetic, not blocking.
+- `forge verify-contract` — all three contracts verified on Blockscout and showing their
+  names. Note: the verifier throws intermittent `BadRecordMac` TLS errors mid-poll; the
+  submission still lands, so check the address page before retrying.

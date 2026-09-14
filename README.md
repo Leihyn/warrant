@@ -183,8 +183,9 @@ Deployed and demonstrated on CC3. `forge test` is 4/4. Both settlements above ar
 transactions, verified three ways: the CLI's read-back, an independent `status` call against
 the registry, and Blockscout.
 
-Not done: contracts are unverified on Blockscout, and `IdentityRegistry` is reduced to
-ownership plus URI rather than the spec's ERC-721. Warrant's claim rests on the Validation
-Registry surface being spec-faithful, which it is.
+All three contracts are verified on Blockscout, so the source above is readable on chain.
+
+Not done: `IdentityRegistry` is reduced to ownership plus URI rather than the spec's ERC-721.
+Warrant's claim rests on the Validation Registry surface being spec-faithful, which it is.
 
 Built for BUIDL CTC 2026 Fall.
