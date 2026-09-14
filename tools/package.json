@@ -1,0 +1,11 @@
+{
+  "name": "warrant-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Proof-submission CLI for the Warrant ERC-8004 validator on Creditcoin CC3.",
+  "dependencies": {
+    "@gluwa/usc-sdk": "^0.18.0",
+    "ethers": "^6.17.0"
+  }
+}

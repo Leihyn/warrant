@@ -1,0 +1,10 @@
+{
+  "agentId": 1,
+  "chainId": 102031,
+  "chainKey": 3,
+  "deployer": "0xD3EFF0247E7b61d75A34e1965939e736fe69C4c2",
+  "expectedToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+  "identityRegistry": "0x57e56f81b36d55931662A960b6F7c3B8ec02F0B9",
+  "validationRegistry": "0x8b619C6F701598f48Acffd218F18A93CeB698Fbd",
+  "validator": "0x606D9162aD1666B9c5735545A2c81af1f3948cF1"
+}
