@@ -5,4 +5,3 @@ tools/node_modules/
 deployments/31337.json
 .env
 .secrets
-lib/
