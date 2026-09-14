@@ -2,7 +2,7 @@
 
 An ERC-8004 validator that holds no keys and has no opinion.
 
-Live on Creditcoin CC3 testnet:
+**[warrantprotocol.xyz](https://warrantprotocol.xyz)** · Live on Creditcoin CC3 testnet:
 [`0x606D9162aD1666B9c5735545A2c81af1f3948cF1`](https://creditcoin-testnet.blockscout.com/address/0x606D9162aD1666B9c5735545A2c81af1f3948cF1)
 
 ---

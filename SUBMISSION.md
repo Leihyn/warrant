@@ -37,7 +37,14 @@ competing on TVL narratives you do not have.
 https://github.com/Leihyn/warrant
 ```
 
-**Project website** — the deck, once you have made it public:
+**Project website**
+```
+https://warrantprotocol.xyz
+```
+Point it at the deck (DNS step at the bottom of this file). Fallback while DNS propagates:
+`https://warrant-deck-omega.vercel.app`
+
+Previously suggested (private until shared):
 ```
 https://claude.ai/code/artifact/3cc6144e-6ce6-496d-bd0e-ac39e957ffac
 ```
@@ -202,3 +209,34 @@ real `0x0FD2` precompile.
 **The deployed contracts** are visible on Blockscout with verified source — that is the closest
 thing to a "live site" this project has:
 <https://creditcoin-testnet.blockscout.com/address/0x606D9162aD1666B9c5735545A2c81af1f3948cF1>
+
+
+---
+
+## Domain — warrantprotocol.xyz
+
+Added to the Vercel project `warrant-deck` on 2026-09-14. **One manual step left: set DNS at
+your registrar.** Pick one.
+
+**(a) Keep your registrar's DNS — recommended, fastest**
+
+| Type | Name | Value |
+|------|------|-------|
+| A | `@` | `76.76.21.21` |
+| CNAME | `www` | `cname.vercel-dns.com` |
+
+**(b) Hand DNS to Vercel** — change nameservers to `ns1.vercel-dns.com` and `ns2.vercel-dns.com`.
+Slower to propagate; only worth it if you want Vercel managing every record.
+
+Vercel verifies automatically and emails you. Check progress:
+
+```bash
+cd deck && vercel domains inspect warrantprotocol.xyz
+dig +short warrantprotocol.xyz          # expect 76.76.21.21
+```
+
+**Until it resolves, put the Vercel URL in the form**, not the bare domain. A dead link is worse
+than an ugly one. Swap it once `dig` returns the A record.
+
+Note: you wrote `.xuz`, which is not a real TLD. This assumes you registered **`.xyz`**. If it is
+something else, re-run `vercel domains add <the real domain>` in `deck/`.
