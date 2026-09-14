@@ -5,3 +5,5 @@ tools/node_modules/
 deployments/31337.json
 .env
 .secrets
+video/frames/
+video/node_modules

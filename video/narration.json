@@ -1,0 +1,42 @@
+{
+  "project": "Warrant",
+  "voice": "leihyn (cloned from weir/video/public/vo-raw.m4a)",
+  "note": "spoken != caption by design. The synthesizer needs phonetic spelling; the viewer must still read the real identifiers. Captions are burned in because judges watch muted.",
+  "scenes": [
+    {
+      "id": "hook",
+      "caption": "An autonomous agent finishes a job and says it was paid. Who checks?",
+      "spoken": "An autonomous agent finishes a job, and says it was paid. Who checks?"
+    },
+    {
+      "id": "three",
+      "caption": "ERC-8004 answers with a Validation Registry. It names three things you can put in the validator slot: a human reviewer, a staked node, a TEE. All three are somebody you have to trust.",
+      "spoken": "E R C eight thousand four answers with a validation registry. It names three things you can put in the validator slot. A human reviewer. A staked node. A trusted execution environment. All three are somebody you have to trust."
+    },
+    {
+      "id": "observation",
+      "caption": "But validatorAddress is just an address. An address can be a contract. And a contract does not need an opinion.",
+      "spoken": "But validator address is just an address. An address can be a contract. And a contract does not need an opinion."
+    },
+    {
+      "id": "attestcoin",
+      "caption": "Creditcoin's Attestcoin Protocol proves natively that a transaction was included in a finalized Ethereum block. No oracle operator.",
+      "spoken": "Creditcoin's Attest coin protocol proves, natively, that a transaction was included in a finalized Ethereum block. No oracle operator."
+    },
+    {
+      "id": "gap",
+      "caption": "Here is what the block prover does not do. It does not check whether the transaction succeeded. A reverted payment is still in the block, and it proves exactly as well as a real one.",
+      "spoken": "Here is what the block prover does not do. It does not check whether the transaction succeeded. A reverted payment is still in the block, and it proves exactly as well as a real one."
+    },
+    {
+      "id": "proof",
+      "caption": "These two USDC transfers sit in the same Ethereum block, 25,971,533. One moved 45 dollars. One reverted and moved nothing. Attestcoin returns true for both. Warrant returns 100, and 0.",
+      "spoken": "These two U S D C transfers sit in the same Ethereum block. One moved forty five dollars. One reverted, and moved nothing. Attest coin returns true for both. Warrant returns one hundred, and zero."
+    },
+    {
+      "id": "close",
+      "caption": "No keys. No stake. No quorum. Nothing to bribe, because there is nobody to bribe. Warrant is live on Creditcoin CC3.",
+      "spoken": "No keys. No stake. No quorum. Nothing to bribe, because there is nobody to bribe. Warrant is live on Creditcoin, C C three."
+    }
+  ]
+}
