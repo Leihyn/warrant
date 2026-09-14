@@ -16,23 +16,12 @@ Warrant
 
 **BUIDL logo** — upload `brand/logo.png` (480×480 PNG, 19 KB).
 
-**Vision** (describe the problem this project solves)
+**Vision** (describe the problem this project solves) — **249 / 256 characters**
 ```
-An autonomous agent finishes a job and says it was paid. Who checks?
-
-ERC-8004, the Trustless Agents standard, answers with a Validation Registry: a
-validatorAddress responds 0-100 and that score becomes the agent's on-chain
-reputation. The standard names three things you can put in that slot — a human
-reviewer, a staked node, or a TEE. All three are a party you must trust. So the
-standard called "Trustless Agents" settles its most consequential question —
-did this actually happen? — by picking whom to trust.
-
-Warrant is a validator that holds no keys and has no opinion. It is a contract
-in the validatorAddress slot that answers 100 only when the payment is provable
-on Ethereum mainnet through Creditcoin's Attestcoin block-prover precompile, and
-0 otherwise. No reviewer, no stake, no quorum. Nothing to bribe, because there
-is nobody to bribe.
+An agent says it was paid. Who checks? ERC-8004's answer is a reviewer, a staked node, or a TEE — all someone you must trust. Warrant is a validator with no keys: 100 only when the payment is provable on Ethereum mainnet via Attestcoin, 0 otherwise.
 ```
+The longer version below is too long for this field; keep it for the Attestcoin Integration
+Summary and the deck, which have no such limit.
 
 **Category**
 ```
@@ -181,3 +170,35 @@ node tools/warrant.mjs status demo-reverted     # 0
 
 Create the BUIDL early: DoraHacks lets you keep editing until the deadline, so submitting a
 draft now turns the cliff into a ratchet.
+
+
+---
+
+## Seeing it locally
+
+**Warrant has no web app.** It is three contracts plus a CLI, so there is nothing to "run" in a
+browser. The only web artifact is the deck.
+
+**The deck:**
+```bash
+cd deck && python3 -m http.server 8080
+```
+Then open <http://127.0.0.1:8080/>. Or just double-click `deck/index.html` — it is a single
+self-contained file and opens straight from disk.
+
+**The project itself** is a terminal program. This is what a judge, and your video, should see:
+```bash
+cd tools && npm install && cd ..
+
+node tools/warrant.mjs frontier                      # how far Attestcoin has attested mainnet
+node tools/warrant.mjs preflight 0x45f369754959b6b57e35009e0552b5952d8cab022828c709e54d4a755d857b41
+node tools/warrant.mjs preflight 0x415fab30ccd6853ffaba2f660f7ff7c0ed71c8b0d31d5cddd51e0e342f2d7ea6
+node tools/warrant.mjs status demo-good              # 100
+node tools/warrant.mjs status demo-reverted          # 0
+```
+None of those need gas, a key, or a deployment. They hit the live Creditcoin prover and the
+real `0x0FD2` precompile.
+
+**The deployed contracts** are visible on Blockscout with verified source — that is the closest
+thing to a "live site" this project has:
+<https://creditcoin-testnet.blockscout.com/address/0x606D9162aD1666B9c5735545A2c81af1f3948cF1>
