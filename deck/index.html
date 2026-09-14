@@ -1,0 +1,343 @@
+<title>Warrant Exhibits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ink:#15233D; --ink-2:#3C4A63; --ink-3:#69758C;
+    --paper:#F6F7FA; --paper-2:#FFFFFF; --rule:#D7DDE7; --rule-2:#E8ECF2;
+    --yes:#0E6B4F; --yes-bg:#E4F1EC;
+    --no:#9B3535;  --no-bg:#F6E7E7;
+    --accent:#3B4FA8;
+    --seal:#15233D;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#E4E9F2; --ink-2:#AAB5C8; --ink-3:#7C879C;
+      --paper:#0E1420; --paper-2:#151D2C; --rule:#2A3547; --rule-2:#1E2736;
+      --yes:#4FD1A5; --yes-bg:#11302A;
+      --no:#E08585;  --no-bg:#2E1A1C;
+      --accent:#8FA2F0;
+      --seal:#E4E9F2;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#E4E9F2; --ink-2:#AAB5C8; --ink-3:#7C879C;
+    --paper:#0E1420; --paper-2:#151D2C; --rule:#2A3547; --rule-2:#1E2736;
+    --yes:#4FD1A5; --yes-bg:#11302A;
+    --no:#E08585;  --no-bg:#2E1A1C;
+    --accent:#8FA2F0;
+    --seal:#E4E9F2;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px; margin:0 auto; padding-inline:24px; padding-block:0}
+  code,.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  /* ── plates ─────────────────────────────────────────── */
+  .plate{padding-block:72px; border-top:1px solid var(--rule)}
+  .plate:first-of-type{border-top:0}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3);
+    display:flex; align-items:center; gap:12px; margin-bottom:22px;
+  }
+  .eyebrow::after{content:""; flex:1; height:1px; background:var(--rule)}
+  h1,h2,h3{font-family:Newsreader,Georgia,serif; font-weight:500; text-wrap:balance; margin:0}
+  h1{font-size:clamp(40px,7vw,72px); line-height:1.04; letter-spacing:-.02em}
+  h2{font-size:clamp(27px,4vw,40px); line-height:1.15; letter-spacing:-.01em; margin-bottom:18px}
+  h3{font-size:19px; line-height:1.3; margin-bottom:8px}
+  p{margin:0 0 16px; max-width:64ch; color:var(--ink-2)}
+  p.lead{font-size:19px; color:var(--ink)}
+  strong{color:var(--ink); font-weight:600}
+
+  /* ── masthead ───────────────────────────────────────── */
+  .masthead{padding-block:80px 64px}
+  .brandrow{display:flex; align-items:center; gap:18px; margin-bottom:40px}
+  .mark{width:58px; height:58px; flex:none}
+  .brandname{font-family:Newsreader,serif; font-size:27px; letter-spacing:.01em}
+  .filed{
+    font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-3); margin-left:auto; text-align:right; line-height:1.7;
+  }
+  .standfirst{font-size:21px; line-height:1.55; max-width:60ch; color:var(--ink-2); margin-top:26px}
+  .standfirst em{font-style:italic; color:var(--ink)}
+
+  /* ── verdict strip ──────────────────────────────────── */
+  .strip{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:1px;
+         background:var(--rule); border:1px solid var(--rule); margin-top:44px}
+  .cell{background:var(--paper-2); padding:18px 20px}
+  .cell .k{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.13em;
+           text-transform:uppercase; color:var(--ink-3); margin-bottom:7px}
+  .cell .v{font-family:Newsreader,serif; font-size:25px; line-height:1.1}
+  .cell .v.sm{font-size:15px; font-family:"IBM Plex Mono",monospace; word-break:break-all; line-height:1.45}
+
+  /* ── pull quote ─────────────────────────────────────── */
+  blockquote{
+    margin:26px 0; padding:22px 26px; background:var(--paper-2);
+    border-left:3px solid var(--accent); font-family:Newsreader,serif;
+    font-size:21px; line-height:1.45; color:var(--ink);
+  }
+  blockquote cite{display:block; margin-top:12px; font-family:"IBM Plex Mono",monospace;
+    font-size:11px; font-style:normal; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3)}
+
+  /* ── invariants ─────────────────────────────────────── */
+  .inv{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:28px}
+  .inv > div{background:var(--paper-2); padding:20px 22px; display:grid;
+             grid-template-columns:52px 1fr; gap:20px; align-items:start}
+  .inv .id{font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600;
+           color:var(--accent); padding-top:2px}
+  .inv p{margin:0; font-size:14.5px}
+
+  /* ── the diptych ────────────────────────────────────── */
+  .block-note{
+    text-align:center; font-family:"IBM Plex Mono",monospace; font-size:11.5px;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3);
+    padding:14px; border:1px dashed var(--rule); margin-top:28px; background:var(--paper-2);
+  }
+  .diptych{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px}
+  @media (max-width:680px){ .diptych{grid-template-columns:1fr} }
+  .tx{border:1px solid var(--rule); background:var(--paper-2); padding:24px; display:flex; flex-direction:column; gap:14px}
+  .tx.pass{border-color:var(--yes)} .tx.fail{border-color:var(--no)}
+  .tx .who{font-family:Newsreader,serif; font-size:21px; line-height:1.25}
+  .tx dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:7px 14px; font-size:13px}
+  .tx dt{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em;
+         text-transform:uppercase; color:var(--ink-3); padding-top:3px}
+  .tx dd{margin:0; font-family:"IBM Plex Mono",monospace; word-break:break-all; color:var(--ink-2)}
+  .verdict{margin-top:auto; display:flex; align-items:baseline; gap:12px; padding-top:16px; border-top:1px solid var(--rule-2)}
+  .verdict .n{font-family:Newsreader,serif; font-size:52px; line-height:1; font-variant-numeric:tabular-nums}
+  .verdict .t{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase}
+  .pass .verdict .n, .pass .verdict .t{color:var(--yes)}
+  .fail .verdict .n, .fail .verdict .t{color:var(--no)}
+  .oracle{
+    margin-top:20px; padding:16px 20px; background:var(--paper-2);
+    border:1px solid var(--rule); font-size:14.5px; color:var(--ink-2);
+  }
+  .oracle b{color:var(--ink)}
+
+  /* ── code ───────────────────────────────────────────── */
+  pre{
+    margin:22px 0 0; padding:20px 22px; background:var(--paper-2); border:1px solid var(--rule);
+    overflow-x:auto; font-size:13px; line-height:1.65; color:var(--ink-2);
+  }
+  pre b{color:var(--ink); font-weight:600}
+  pre .c{color:var(--ink-3)}
+  pre .g{color:var(--yes)}
+
+  /* ── ledger table ───────────────────────────────────── */
+  .scroll{overflow-x:auto; margin-top:24px}
+  table{border-collapse:collapse; width:100%; font-size:14px; min-width:520px}
+  th,td{text-align:left; padding:12px 14px; border-bottom:1px solid var(--rule-2); vertical-align:top}
+  th{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em;
+     text-transform:uppercase; color:var(--ink-3); border-bottom:1px solid var(--rule)}
+  td.mono{font-family:"IBM Plex Mono",monospace; font-size:12.5px; word-break:break-all}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+  a:hover{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:8px}
+  @media (max-width:760px){ .two{grid-template-columns:1fr; gap:26px} }
+
+  .colophon{padding-block:44px 72px; border-top:1px solid var(--rule);
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.06em; color:var(--ink-3);
+    display:flex; flex-wrap:wrap; gap:8px 28px}
+
+  @media print{
+    :root{--paper:#fff;--paper-2:#fff;--ink:#000;--ink-2:#222;--ink-3:#555;--rule:#bbb;--rule-2:#ddd}
+    .plate{page-break-inside:avoid; break-inside:avoid; padding-block:32px}
+    .masthead{padding-block:0 28px}
+    pre,.tx,.cell,blockquote{background:#fff}
+    a{color:#000; border:0}
+    .colophon{page-break-before:avoid}
+  }
+  @media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="brandrow">
+      <svg class="mark" viewBox="0 0 480 480" aria-hidden="true">
+        <polygon points="326.00,108.00 405.67,154.00 405.67,246.00 326.00,292.00 246.33,246.00 246.33,154.00"
+                 fill="none" stroke="var(--ink-3)" stroke-width="17" stroke-linejoin="round"/>
+        <line x1="297" y1="229" x2="355" y2="171" stroke="var(--ink-3)" stroke-width="17" stroke-linecap="round"/>
+        <polygon points="178.00,142.00 278.45,200.00 278.45,316.00 178.00,374.00 77.55,316.00 77.55,200.00"
+                 fill="var(--paper)" stroke="var(--paper)" stroke-width="34" stroke-linejoin="round"/>
+        <polygon points="178.00,142.00 278.45,200.00 278.45,316.00 178.00,374.00 77.55,316.00 77.55,200.00"
+                 fill="none" stroke="var(--seal)" stroke-width="17" stroke-linejoin="round"/>
+        <path d="M 128 258 L 165 295 L 233 222" fill="none" stroke="var(--seal)"
+              stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brandname">Warrant</div>
+      <div class="filed">
+        BUIDL CTC 2026 Fall<br>Track&nbsp;·&nbsp;AI<br>Creditcoin CC3&nbsp;·&nbsp;chain 102031
+      </div>
+    </div>
+
+    <h1>An ERC&#8209;8004 validator<br>with no keys and<br>no opinion.</h1>
+
+    <p class="standfirst">ERC&#8209;8004 names three things you can trust to validate an agent's
+    work: a reviewer, a staked node, a TEE. All three are somebody you must trust. Warrant is a
+    contract in that slot which answers <em>100</em> only when the payment is provable on Ethereum
+    mainnet, and <em>0</em> otherwise.</p>
+
+    <div class="strip">
+      <div class="cell"><div class="k">Status</div><div class="v">Live on CC3</div></div>
+      <div class="cell"><div class="k">Precompile</div><div class="v">0x0FD2</div></div>
+      <div class="cell"><div class="k">Attested chain</div><div class="v">chainKey 3</div></div>
+      <div class="cell"><div class="k">Validator</div><div class="v sm">0x606D9162aD1666B9c5735545A2c81af1f3948cF1</div></div>
+    </div>
+  </header>
+
+  <section class="plate">
+    <div class="eyebrow">Exhibit 01 &nbsp;·&nbsp; The problem</div>
+    <h2>An agent finishes a job and says it was paid. Who checks?</h2>
+    <p class="lead">ERC&#8209;8004, the Trustless Agents standard, answers with a Validation
+    Registry. Work is submitted, a <code>validatorAddress</code> responds with a score from 0 to
+    100, and that score becomes the agent's on&#8209;chain reputation.</p>
+    <p>The standard names three ways to fill that slot. A human reviewer, who can be lazy or
+    bought. A staked node, only as honest as its stake is large. A TEE, which is a hardware
+    vendor's promise.</p>
+    <p><strong>So the standard called "Trustless Agents" settles its most consequential question
+    — did this actually happen? — by picking whom to trust.</strong></p>
+  </section>
+
+  <section class="plate">
+    <div class="eyebrow">Exhibit 02 &nbsp;·&nbsp; The observation</div>
+    <h2>A contract does not need an opinion.</h2>
+    <p class="lead"><code>validatorAddress</code> is an <code>address</code>. The spec constrains
+    it no further. An address can be a contract.</p>
+    <p>Creditcoin's Attestcoin Protocol exposes a block&#8209;prover precompile at
+    <code>0x0FD2</code> that verifies natively, with no oracle operator, that a transaction was
+    included in a finalized block of an attested chain. So a validator can be a contract that
+    answers 100 only when the work is provable on Ethereum mainnet.</p>
+    <p><strong>No keys. No stake. No quorum. Nothing to bribe, because there is nobody to
+    bribe.</strong></p>
+  </section>
+
+  <section class="plate">
+    <div class="eyebrow">Exhibit 03 &nbsp;·&nbsp; The gap</div>
+    <h2>Inclusion is not success.</h2>
+    <blockquote>
+      The block prover precompile does not validate if a transaction was successful or not.
+      <cite>Attestcoin Protocol documentation</cite>
+    </blockquote>
+    <p>A transaction that reverted, ran out of gas, or moved nothing at all is still in the block
+    — and it proves <em>exactly as well</em> as one that transferred a million dollars. A
+    validator that stops at "the proof verified" will settle a payment that never happened.</p>
+    <p><strong>Warrant decodes the receipt from the proven transaction bytes.</strong> Four
+    invariants must hold before it will answer 100.</p>
+
+    <div class="inv">
+      <div><div class="id">I&#8209;1</div><div><h3>Inclusion</h3><p><code>0x0FD2</code> verifies the Merkle proof and continuity chain. The precompile reverts on a bad proof, and a block beyond the attested frontier fails here too — so finality is covered by this one call.</p></div></div>
+      <div><div class="id">I&#8209;2</div><div><h3>Replay</h3><p>One proof, one settlement. Without it, a single real payment settles an unlimited number of jobs.</p></div></div>
+      <div><div class="id">I&#8209;3</div><div><h3>Receipt status</h3><p>The transaction must have succeeded. This is the invariant the precompile explicitly does not check for you.</p></div></div>
+      <div><div class="id">I&#8209;4</div><div><h3>Emitter and argument binding</h3><p>The log must come from the expected token, and payer, payee and amount must match the claim. An event signature is not exclusive — anyone can deploy a contract that emits <code>Transfer</code>. The caller's assertion is not evidence.</p></div></div>
+    </div>
+  </section>
+
+  <section class="plate">
+    <div class="eyebrow">Exhibit 04 &nbsp;·&nbsp; Proof</div>
+    <h2>Two payments. One block. Two answers.</h2>
+    <p>Both are real USDC transfers on Ethereum mainnet, sitting in the same block. Same Merkle
+    root, same continuity proof, same attestation. One moved 45.00 USDC. One reverted and moved
+    nothing.</p>
+
+    <div class="block-note">Ethereum mainnet &nbsp;·&nbsp; block <span class="tnum">25,971,533</span> &nbsp;·&nbsp; identical attestation</div>
+
+    <div class="diptych">
+      <article class="tx pass">
+        <div class="who">The payment that happened</div>
+        <dl>
+          <dt>Tx</dt><dd>0x45f3697…857b41</dd>
+          <dt>Receipt</dt><dd>status 1 — success</dd>
+          <dt>Moved</dt><dd>45.00 USDC</dd>
+          <dt>Tag</dt><dd>attestcoin:0x0FD2</dd>
+        </dl>
+        <div class="verdict"><span class="n">100</span><span class="t">Validated</span></div>
+      </article>
+      <article class="tx fail">
+        <div class="who">The payment that did not</div>
+        <dl>
+          <dt>Tx</dt><dd>0x415fab3…2d7ea6</dd>
+          <dt>Receipt</dt><dd>status 0 — reverted</dd>
+          <dt>Moved</dt><dd>nothing. 0 logs emitted</dd>
+          <dt>Tag</dt><dd>REVERTED</dd>
+        </dl>
+        <div class="verdict"><span class="n">0</span><span class="t">Rejected</span></div>
+      </article>
+    </div>
+
+    <div class="oracle"><b>The precompile returns <code>true</code> for both</b> — correctly, since
+    both are genuinely in that block. Warrant does not. The second settlement emits
+    <code>RejectedRevertedTransaction</code>, on chain, where anyone can read it.</div>
+  </section>
+
+  <section class="plate">
+    <div class="eyebrow">Exhibit 05 &nbsp;·&nbsp; Integration</div>
+    <h2>The protocol is the trust model, not a feature.</h2>
+    <div class="two">
+      <div>
+        <h3>On chain</h3>
+        <p><code>prove()</code> calls the block&#8209;prover precompile directly. Remove it and
+        there is no validator, only another party to trust.</p>
+      </div>
+      <div>
+        <h3>Off chain</h3>
+        <p>The CLI builds Merkle and continuity proofs through <code>@gluwa/usc-sdk</code>, and
+        reads the attested frontier from the chain&#8209;info precompile so a caller can tell
+        whether a block is provable yet.</p>
+      </div>
+    </div>
+<pre><span class="c">// AttestcoinValidator.sol — I-1 INCLUSION</span>
+<b>try</b> NativeQueryVerifierLib.getVerifier().<b>verify</b>(
+    chainKey, c.blockHeight, txb, c.merkleProof, c.continuityProof
+) <b>returns</b> (<b>bool</b> ok) {
+    <b>if</b> (!ok) <b>return</b> _reject(requestHash, txKey, <span class="g">"INCLUSION"</span>);
+} <b>catch</b> {
+    <b>return</b> _reject(requestHash, txKey, <span class="g">"INCLUSION"</span>);
+}</pre>
+    <p style="margin-top:20px">Warrant occupies the <code>validatorAddress</code> slot of an
+    otherwise ordinary Validation Registry. <code>ValidationRegistry.sol</code> knows nothing
+    about Attestcoin — it is the spec surface, unmodified. <strong>Warrant is a drop&#8209;in for
+    any ERC&#8209;8004 deployment, not a fork of one.</strong></p>
+  </section>
+
+  <section class="plate">
+    <div class="eyebrow">Exhibit 06 &nbsp;·&nbsp; On chain</div>
+    <h2>Check it yourself.</h2>
+    <p>Deployed on Creditcoin CC3 testnet, chain <span class="tnum">102031</span>. All three
+    contracts verified on Blockscout.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Contract</th><th>Address</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>AttestcoinValidator</td><td class="mono">0x606D9162aD1666B9c5735545A2c81af1f3948cF1</td><td><a href="https://creditcoin-testnet.blockscout.com/address/0x606D9162aD1666B9c5735545A2c81af1f3948cF1">verified</a></td></tr>
+          <tr><td>ValidationRegistry</td><td class="mono">0x8b619C6F701598f48Acffd218F18A93CeB698Fbd</td><td><a href="https://creditcoin-testnet.blockscout.com/address/0x8b619C6F701598f48Acffd218F18A93CeB698Fbd">verified</a></td></tr>
+          <tr><td>IdentityRegistry</td><td class="mono">0x57e56f81b36d55931662A960b6F7c3B8ec02F0B9</td><td><a href="https://creditcoin-testnet.blockscout.com/address/0x57e56f81b36d55931662A960b6F7c3B8ec02F0B9">verified</a></td></tr>
+          <tr><td>Settlement → 100</td><td class="mono">0x6d601ec874682c3ea89d9ff28ae9dbfb657e2be4f64415741ca471a9ef1c44d9</td><td><a href="https://creditcoin-testnet.blockscout.com/tx/0x6d601ec874682c3ea89d9ff28ae9dbfb657e2be4f64415741ca471a9ef1c44d9">transaction</a></td></tr>
+          <tr><td>Settlement → 0</td><td class="mono">0xda90af0212f2e372fe445c104775973607a870d419efeaadb332501a2bc9b809</td><td><a href="https://creditcoin-testnet.blockscout.com/tx/0xda90af0212f2e372fe445c104775973607a870d419efeaadb332501a2bc9b809">transaction</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+<pre><span class="c"># reproduce the thesis without deploying anything</span>
+git clone https://github.com/Leihyn/warrant &amp;&amp; cd warrant
+forge test                                     <span class="c"># 4/4</span>
+cd tools &amp;&amp; npm install &amp;&amp; cd ..
+node tools/warrant.mjs preflight 0x415fab30…2d7ea6   <span class="c"># the reverted one</span></pre>
+  </section>
+
+  <footer class="colophon">
+    <span>Warrant</span>
+    <span>github.com/Leihyn/warrant</span>
+    <span>Creditcoin CC3 · chain 102031</span>
+    <span>BUIDL CTC 2026 Fall · AI track</span>
+  </footer>
+
+</div>
