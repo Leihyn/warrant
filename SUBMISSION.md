@@ -41,17 +41,13 @@ https://github.com/Leihyn/warrant
 ```
 https://warrantprotocol.xyz
 ```
-Point it at the deck (DNS step at the bottom of this file). Fallback while DNS propagates:
-`https://warrant-deck-omega.vercel.app`
+Live, serving the deck. If the apex is still finishing its certificate when you paste, use
+`https://www.warrantprotocol.xyz` — same page, already 200. Last resort:
+`https://warrant-deck-omega.vercel.app`.
 
-Previously suggested (private until shared):
-```
-https://claude.ai/code/artifact/3cc6144e-6ce6-496d-bd0e-ac39e957ffac
-```
-It is **private until you share it**. Open it, use the page's share menu, then either paste the
-link or print to PDF (Cmd+P — it has print styles) and upload that instead.
-
-**Demo video** — **YOU**. Script at the bottom of this file.
+**Demo video** — the file is **rendered and ready**: `video/out/warrant-demo.mp4`, 83 s, 1080p,
+burned-in captions, no audio (deliberate — judges watch muted). Upload it to YouTube as
+**Unlisted** and paste the link. That is the only step left on it.
 
 **Social links** (at least one required)
 ```
@@ -170,8 +166,10 @@ node tools/warrant.mjs status demo-reverted     # 0
 - [x] Contracts verified on Blockscout
 - [x] Logo (`brand/logo.png`)
 - [x] Original work, created during the hackathon
-- [ ] **Demo video** — YOU
-- [x] Deck built (`deck/index.html`, hosted) — **YOU** must make it public or print to PDF
+- [x] Demo video rendered — `video/out/warrant-demo.mp4` (83 s, 1080p, captioned)
+- [ ] **Upload that file to YouTube (Unlisted) and paste the link** — YOU
+- [x] Deck built, hosted, and on its own domain — <https://warrantprotocol.xyz>
+- [x] Domain wired: DNS, Vercel alias, favicon, og/twitter share card
 - [ ] **Team information** — YOU
 - [ ] **Register as a hacker, then create the BUIDL and submit** — YOU
 
@@ -213,30 +211,33 @@ thing to a "live site" this project has:
 
 ---
 
-## Domain — warrantprotocol.xyz
+## Domain — warrantprotocol.xyz — DONE
 
-Added to the Vercel project `warrant-deck` on 2026-09-14. **One manual step left: set DNS at
-your registrar.** Pick one.
+Registered at Namecheap, attached to the Vercel project `warrant-deck`, A record set, deployed.
+Verified 2026-09-14 03:2x UTC+1:
 
-**(a) Keep your registrar's DNS — recommended, fastest**
+- `dig +short warrantprotocol.xyz` → `76.76.21.21`
+- `https://www.warrantprotocol.xyz` → 200, serving the deck
+- apex `https://warrantprotocol.xyz` → certificate provisioning (Vercel issues it a few minutes
+  after it first sees the A record; nothing left to do)
 
-| Type | Name | Value |
-|------|------|-------|
-| A | `@` | `76.76.21.21` |
-| CNAME | `www` | `cname.vercel-dns.com` |
-
-**(b) Hand DNS to Vercel** — change nameservers to `ns1.vercel-dns.com` and `ns2.vercel-dns.com`.
-Slower to propagate; only worth it if you want Vercel managing every record.
-
-Vercel verifies automatically and emails you. Check progress:
+Re-check either one with:
 
 ```bash
-cd deck && vercel domains inspect warrantprotocol.xyz
-dig +short warrantprotocol.xyz          # expect 76.76.21.21
+curl -o /dev/null -w "%{http_code}\n" https://warrantprotocol.xyz
+curl -o /dev/null -w "%{http_code}\n" https://www.warrantprotocol.xyz
 ```
 
-**Until it resolves, put the Vercel URL in the form**, not the bare domain. A dead link is worse
-than an ugly one. Swap it once `dig` returns the A record.
+**Where the domain now appears** — all committed and pushed:
 
-Note: you wrote `.xuz`, which is not a real TLD. This assumes you registered **`.xyz`**. If it is
-something else, re-run `vercel domains add <the real domain>` in `deck/`.
+| Place | State |
+|---|---|
+| `README.md` header | linked |
+| `deck/index.html` cover + colophon | linked |
+| deck `<title>`, description, canonical, `og:*`, `twitter:*` | added |
+| deck favicon (`/logo.png`) and share image (`/og.png`, 1200×630) | added |
+| GitHub repo homepage + description | set via `gh repo edit` |
+| DoraHacks **Project website** field | paste `https://warrantprotocol.xyz` |
+
+The share image is the demo video's climax frame — the terminal showing `receipt status 0
+<-- REVERTED`. A link to the site now previews the thesis instead of a bare URL.
